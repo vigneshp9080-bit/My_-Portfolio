@@ -1,10 +1,20 @@
 // ============================================================
-// ABOUT COMPONENT
+// ALL COMPONENTS — imports must all be at the top
 // ============================================================
 import "./components.css";
-import { useEffect, useRef } from "react";
-import { education } from "../data/resumeData";
+import { useEffect, useRef, useState } from "react";
+import {
+  education,
+  skills as skillsData,
+  projects,
+  experience,
+  certifications,
+  personal,
+} from "../data/resumeData";
 
+// ============================================================
+// ABOUT COMPONENT
+// ============================================================
 export function About() {
   const ref = useRef(null);
   useEffect(() => {
@@ -37,7 +47,7 @@ export function About() {
             <h2 className="section-title">Passionate about<br /><span className="highlight">AI-driven</span> solutions</h2>
             <div className="section-divider" />
             <div className="about-text">
-              <p>I'm a B.Tech student in Artificial Intelligence & Data Science at Kathir College of Engineering, Coimbatore. With a strong foundation in ML, Deep Learning, and Generative AI, I build intelligent systems that solve real-world problems.</p>
+              <p>I'm a B.Tech student in Artificial Intelligence &amp; Data Science at Kathir College of Engineering, Coimbatore. With a strong foundation in ML, Deep Learning, and Generative AI, I build intelligent systems that solve real-world problems.</p>
               <p>My journey spans full-stack web development, robotics, and advanced AI — from sentiment analysis platforms to real-time OS monitoring with anomaly detection.</p>
               <p>I'm actively seeking international opportunities where I can leverage Python, NLP, Computer Vision, and cloud-based AI to deliver high-impact solutions.</p>
             </div>
@@ -62,8 +72,6 @@ export function About() {
 // ============================================================
 // SKILLS COMPONENT
 // ============================================================
-import { skills as skillsData } from "../data/resumeData";
-
 export function Skills() {
   const gridRef = useRef(null);
   useEffect(() => {
@@ -108,8 +116,6 @@ export function Skills() {
 // ============================================================
 // PROJECTS COMPONENT
 // ============================================================
-import { projects } from "../data/resumeData";
-
 export function Projects() {
   return (
     <section id="projects">
@@ -154,8 +160,6 @@ export function Projects() {
 // ============================================================
 // EXPERIENCE COMPONENT
 // ============================================================
-import { experience } from "../data/resumeData";
-
 export function Experience() {
   return (
     <section id="experience" className="section-alt">
@@ -192,8 +196,6 @@ export function Experience() {
 // ============================================================
 // CERTIFICATIONS COMPONENT
 // ============================================================
-import { certifications } from "../data/resumeData";
-
 export function Certifications() {
   return (
     <section id="certifications">
@@ -222,9 +224,6 @@ export function Certifications() {
 // ============================================================
 // CONTACT COMPONENT
 // ============================================================
-import { useState } from "react";
-import { personal } from "../data/resumeData";
-
 export function Contact() {
   const [sent, setSent] = useState(false);
 
@@ -307,17 +306,15 @@ export function Contact() {
 // ============================================================
 // FOOTER COMPONENT
 // ============================================================
-import { personal as p2 } from "../data/resumeData";
-
 export function Footer() {
   return (
     <footer>
       <p>Designed &amp; Built by <strong>Vignesh P</strong> · AI Engineer &amp; Data Scientist</p>
       <p style={{ marginTop: "0.5rem" }}>
         © 2026 · Coimbatore, India ·{" "}
-        <a href={p2.linkedin} target="_blank" rel="noreferrer" style={{ color: "var(--accent)" }}>LinkedIn</a>
+        <a href={personal.linkedin} target="_blank" rel="noreferrer" style={{ color: "var(--accent)" }}>LinkedIn</a>
         {" · "}
-        <a href={p2.github} target="_blank" rel="noreferrer" style={{ color: "var(--accent)" }}>GitHub</a>
+        <a href={personal.github} target="_blank" rel="noreferrer" style={{ color: "var(--accent)" }}>GitHub</a>
       </p>
     </footer>
   );
